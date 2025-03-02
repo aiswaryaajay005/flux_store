@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flux_store/global_widgets/reusable_button.dart';
 import 'package:flux_store/utils/constants/color_constants.dart';
 import 'package:flux_store/utils/constants/image_constants.dart';
+import 'package:flux_store/view/signup_screen/signup_screen.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -35,7 +36,7 @@ class IntroScreen extends StatelessWidget {
                         color: ColorConstants.darkgrey,
                       ),
                     ),
-                    _buildCarouselSection(),
+                    _buildCarouselSection(context),
                   ],
                 ),
               ),
@@ -46,7 +47,7 @@ class IntroScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCarouselSection() {
+  Widget _buildCarouselSection(BuildContext context) {
     return Column(
       children: [
         SizedBox(
@@ -82,7 +83,22 @@ class IntroScreen extends StatelessWidget {
           ),
         ),
         SizedBox(height: 27),
-        ReusableButton(name: "Shop Now", onButtonPressed: () {}),
+        ReusableButton(
+          alpha: 70,
+          name: "Shop Now",
+          onButtonPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => SignupScreen()),
+            );
+          },
+        ),
+        SizedBox(height: 22),
+        Text(
+          "or log in with",
+
+          style: TextStyle(color: ColorConstants.black, fontSize: 12),
+        ),
       ],
     );
   }

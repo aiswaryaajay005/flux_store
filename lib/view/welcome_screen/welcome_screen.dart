@@ -43,9 +43,10 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 60),
             ReusableButton(
+              alpha: 70,
+
               name: "Get Started",
               onButtonPressed: () {
-                print("Button pressed");
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => IntroScreen()),
