@@ -4,20 +4,19 @@ import 'package:flux_store/global_widgets/logo_avatar.dart';
 import 'package:flux_store/global_widgets/reusable_button.dart';
 import 'package:flux_store/utils/constants/color_constants.dart';
 import 'package:flux_store/utils/constants/image_constants.dart';
-import 'package:flux_store/view/login_screen/login_screen.dart';
+import 'package:flux_store/view/bottom_navbar_screen/bottom_navbar_screen.dart';
+import 'package:flux_store/view/signup_screen/signup_screen.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
-  TextEditingController nameController = TextEditingController();
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPassswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,39 +31,49 @@ class _SignupScreenState extends State<SignupScreen> {
               Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "Create \nyour account",
+                  "Log into \nyour account",
                   style: TextStyle(fontSize: 24, height: 2),
                 ),
               ),
               SizedBox(height: 19),
-              CustomTextField(
-                hintText: "Enter your Name",
-                controller: nameController,
-              ),
 
               CustomTextField(
                 hintText: "Email Address",
-                controller: emailController,
+                controller: passwordController,
               ),
 
               CustomTextField(
                 hintText: "Password",
                 controller: passwordController,
+                bottomPadding: 28,
               ),
 
-              CustomTextField(
-                hintText: "Confirm Password",
-                bottomPadding: 40,
-                controller: confirmPassswordController,
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Forget Password?",
+                    style: TextStyle(fontSize: 12, color: ColorConstants.black),
+                  ),
+                ),
               ),
+              SizedBox(height: 36),
               ReusableButton(
-                name: "Sign Up",
-                onButtonPressed: () {},
+                name: "Log in",
+                onButtonPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BottomNavbarScreen(),
+                    ),
+                  );
+                },
                 backgroundColor: ColorConstants.buttonbrown,
               ),
               SizedBox(height: 28),
               Text(
-                "or sign up with",
+                "or log in with",
                 style: TextStyle(fontSize: 12, color: ColorConstants.black),
               ),
               SizedBox(height: 28),
@@ -77,23 +86,23 @@ class _SignupScreenState extends State<SignupScreen> {
                   LogoAvatar(image: ImageConstants.facebook),
                 ],
               ),
-              SizedBox(height: 40),
+              Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Already have an account?",
+                    "Don't have an account?",
                     style: TextStyle(fontSize: 14),
                   ),
                   TextButton(
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        MaterialPageRoute(builder: (context) => SignupScreen()),
                       );
                     },
                     child: Text(
-                      "Log in",
+                      "Sign Up",
                       style: TextStyle(
                         fontSize: 14,
                         decoration: TextDecoration.underline,
@@ -103,6 +112,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ],
               ),
+              SizedBox(height: 63),
             ],
           ),
         ),

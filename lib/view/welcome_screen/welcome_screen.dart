@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flux_store/global_widgets/reusable_button.dart';
 import 'package:flux_store/utils/constants/image_constants.dart';
-import 'package:flux_store/view/intro_screen.dart/intro_screen.dart';
+import 'package:flux_store/view/intro_screen/intro_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

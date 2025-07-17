@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flux_store/utils/constants/color_constants.dart';
-import 'package:flux_store/view/intro_screen.dart/intro_screen.dart';
 
 class ReusableButton extends StatelessWidget {
   final String name;
